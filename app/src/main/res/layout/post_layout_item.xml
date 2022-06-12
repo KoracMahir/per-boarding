@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/icon"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/logo"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_margin="10dp"/>
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="@id/icon"
+        app:layout_constraintLeft_toRightOf="@id/icon"
+        android:text="Title"
+        android:layout_marginLeft="20dp"
+        android:textStyle="bold"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/title"
+        app:layout_constraintLeft_toRightOf="@id/icon"
+        android:layout_marginTop="10dp"
+        android:text="Description"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/black"/>
+
+    <TextView
+        android:id="@+id/postUpvotes"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/description"
+        app:layout_constraintLeft_toRightOf="@id/icon"
+        android:layout_marginTop="10dp"
+        android:text="Upvotes: 130"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/black"/>
+
+    <ImageView
+        android:id="@+id/upvote"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        app:layout_constraintTop_toTopOf="@id/icon"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_margin="5dp"
+        android:src="@drawable/upvote"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
