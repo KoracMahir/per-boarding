@@ -5,8 +5,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.example.petboarding.R;
 import com.example.petboarding.jobs.Job;
 import com.example.petboarding.util.AppDB;
@@ -48,6 +50,7 @@ public class PostAdapter extends BaseAdapter {
         TextView description = view.findViewById(R.id.description);
         TextView upVotes = view.findViewById(R.id.postUpvotes);
         View upvote = view.findViewById(R.id.upvote);
+        ImageView image = view.findViewById(R.id.imageUrl);
 
         upvote.setOnClickListener(view1->{
             int newUpvote = AppDB.getInstance(context).postDao().getPostByID(post.getId()).getUpVotes()+1;
@@ -58,6 +61,14 @@ public class PostAdapter extends BaseAdapter {
         title.setText(post.getPostTitle());
         description.setText(post.getPostDescription());
         upVotes.setText("Upvotes: "+post.getUpVotes());
+        try{
+            Glide.with(context)
+                    .load(post.getPostImageUrl())
+                    .centerCrop()
+                    .into(image);
+        }catch (Exception exception){
+
+        }
 
         return view;
     }
